@@ -68,7 +68,7 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	GroupDB := mysql.NewDmGroupModel(conn)
 	RemoteConfigDB := mysql.NewDmRemoteConfigModel(conn)
 	RemoteConfigInfo := mysql.NewDmProductRemoteConfigModel(conn)
-	mysql.NewDmProductRemoteConfigModel(conn)
+	//mysql.NewDmProductRemoteConfigModel(conn)
 	gw := mysql.NewDmGatewayDeviceModel(conn)
 	return &ServiceContext{
 		Config:           c,
