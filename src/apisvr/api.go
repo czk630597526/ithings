@@ -21,7 +21,7 @@ func main() {
 func Test() {
 	sc := gocron.NewScheduler(time.Local)
 	job, err := sc.Tag("cron 1s test").CronWithSeconds("* * * * * ?").Do(func() {
-		logx.Infof("hello world")
+		logx.Infof("hello world not")
 	})
 	fmt.Println(job, err)
 	job, err = sc.Tag("every 2s test").Every("2s").Do(func() {
