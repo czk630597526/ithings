@@ -79,5 +79,10 @@ func (l *ProductSchemaCreateLogic) ProductSchemaCreate(in *dm.ProductSchemaCreat
 	if err != nil {
 		return nil, err
 	}
+
+	err = l.svcCtx.SchemaRepo.ClearCache(l.ctx, in.Info.ProductID)
+	if err != nil {
+		return nil, err
+	}
 	return &dm.Response{}, nil
 }

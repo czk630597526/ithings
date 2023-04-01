@@ -91,6 +91,13 @@ func (l *ProductSchemaUpdateLogic) ProductSchemaUpdate(in *dm.ProductSchemaUpdat
 	if err != nil {
 		return nil, err
 	}
+
+	//add by chzk
+	err = l.svcCtx.SchemaRepo.ClearCache(l.ctx, in.Info.ProductID)
+	if err != nil {
+		return nil, err
+	}
+
 	err = l.svcCtx.DataUpdate.ProductSchemaUpdate(
 		l.ctx, &events.DataUpdateInfo{ProductID: in.Info.ProductID})
 	if err != nil {

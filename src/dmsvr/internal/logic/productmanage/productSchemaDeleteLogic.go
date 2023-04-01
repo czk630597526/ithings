@@ -52,5 +52,11 @@ func (l *ProductSchemaDeleteLogic) ProductSchemaDelete(in *dm.ProductSchemaDelet
 	if err != nil {
 		return nil, err
 	}
+	//add by chzk
+	err = l.svcCtx.SchemaRepo.ClearCache(l.ctx, in.ProductID)
+	if err != nil {
+		return nil, err
+	}
+
 	return &dm.Response{}, nil
 }
